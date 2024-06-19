@@ -7,11 +7,11 @@
   - Exiba o resultado no console, sem inserir um console.log() dentro da função.
 */
 
-function sumDiv(num1 = 2, num2 = 3) {
-  return num1 / num2;
+function multiply(firstNumber = 0, secondNumber = 0) {
+  return firstNumber * secondNumber;
 }
 
-console.log(sumDiv(12, 2));
+console.log(multiply(12, 2));
 
 /*
   02
@@ -21,11 +21,11 @@ console.log(sumDiv(12, 2));
     2 números.
 */
 
-const sumMult = function (num1 = 3, num2 = 2) {
-  return num1 * num2;
+const divide = function (firstNumber = 0, secondNumber = 0) {
+  return firstNumber / secondNumber;
 };
 
-console.log(sumMult(6, 2));
+console.log(divide(6, 2));
 
 /*
   03
@@ -77,10 +77,10 @@ const millennialWords = [
   "fail",
 ];
 
-const newArray = function (wordsToUpperCase) {
+const newArray = function (array = []) {
   let millennialWordsToUpperCase = [];
-  for (let i = 0; i < wordsToUpperCase.length; i++) {
-    millennialWordsToUpperCase.push(wordsToUpperCase[i].toUpperCase());
+  for (let i = 0; i < array.length; i++) {
+    millennialWordsToUpperCase.push(array[i].toUpperCase());
   }
   return millennialWordsToUpperCase;
 };
@@ -99,14 +99,13 @@ console.log(newArray(millennialWords));
 
 
   melhorias que resolvi fazer: 
+    - o algoritimo vai ignorar todo valor que não é um número
     - vai receber tanto número solto quanto arrays
-    - o algoritimo vai ignorar todo valor que não é um número ou array
 */
 
 const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3];
 
-const positiveOrNegative = function (value = randomNumbers) {
-  
+const positiveOrNegative = function (value = 0) {
   let countedNumbers = 0;
   let positiveNumbers = 0;
   let negativeNumbers = 0;
@@ -121,7 +120,7 @@ const positiveOrNegative = function (value = randomNumbers) {
         return `O número zero é um número neutro, nem positivo e nem negativo.`;
       }
     } else {
-      return `O argumento passado não é um number e nem um array.`;
+      return `O argumento passado não é um número e nem um array.`;
     }
   } else {
     for (let i = 0; i < value.length; i++) {
@@ -136,7 +135,7 @@ const positiveOrNegative = function (value = randomNumbers) {
   return `O array "randomNumbers" possui ${countedNumbers} números, sendo ${positiveNumbers} positivos e ${negativeNumbers} negativos.`;
 };
 
-console.log(positiveOrNegative());
+console.log(positiveOrNegative(randomNumbers));
 
 /*
   06
