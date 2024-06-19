@@ -1,0 +1,266 @@
+/*
+  01
+
+  - Utilizando function declaration, implemente uma função que recebe 2 números  
+    por parâmetro e retorna o resultado da multiplicação entre esses 2 números;
+  - Previna que esses parâmetros recebam undefined;
+  - Exiba o resultado no console, sem inserir um console.log() dentro da função.
+*/
+
+function sumDiv(num1 = 2, num2 = 3) {
+  return num1 / num2;
+}
+
+console.log(sumDiv(12, 2));
+
+/*
+  02
+
+  - Faça o mesmo que o exercício acima pede, mas desta vez, implemente uma  
+    **function expression** que retorne o resultado da **divisão** entre esses  
+    2 números.
+*/
+
+const sumMult = function (num1 = 3, num2 = 2) {
+  return num1 * num2;
+};
+
+console.log(sumMult(6, 2));
+
+/*
+  03
+
+  - Implemente uma função que apenas exibe no console o valor recebido por  
+    parâmetro;
+  - Previna que o parâmetro dessa função receba undefined;
+  - Faça a string abaixo ser exibida 7x no console;
+  - A cada exibição, substitua o "X" pela informação correta;
+  - Não repita (manualmente) a invocação da função ou do console.log().
+
+  "Esta é a Xª vez que essa string é exibida."
+*/
+
+const counting = function (position = 1) {
+  for (let i = 1; i <= position; i++) {
+    console.log(`Esta é a ${i}ª vez que essa string é exibida.`);
+  }
+};
+
+counting();
+
+/*
+  04
+
+  - Comente o código acima, de forma que a string não seja mais exibida no  
+    console;
+  - Implemente uma função que retorna um novo array com as strings do array  
+    "millennialWords" em letras maiúsculas;
+  - Exiba o novo array no console, sem inserir um console.log() dentro da  
+    função.
+*/
+
+const millennialWords = [
+  "lol",
+  "yolo",
+  "troll",
+  "stalkear",
+  "selfie",
+  "influencer",
+  "crush",
+  "fitness",
+  "hater",
+  "bae",
+  "random",
+  "kawaii",
+  "outfit",
+  "mood",
+  "fail",
+];
+
+const newArray = function (wordsToUpperCase) {
+  let millennialWordsToUpperCase = [];
+  for (let i = 0; i < wordsToUpperCase.length; i++) {
+    millennialWordsToUpperCase.push(wordsToUpperCase[i].toUpperCase());
+  }
+  return millennialWordsToUpperCase;
+};
+
+console.log(newArray(millennialWords));
+
+/*
+  05
+
+  - Implemente uma função que retorna se um número é positivo;
+  - Use essa função para descobrir quantos números positivos o array 
+    "randomNumbers" possui;
+  - Exiba a frase abaixo no console, inserindo as informações corretas.
+
+  "O array "randomNumbers" possui XX números, sendo XX positivos e XX negativos."
+
+
+  melhorias que resolvi fazer: 
+    - o algoritimo vai ignorar todo valor que não é um número
+    - vai receber tanto número solto quanto arrays
+*/
+
+const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3];
+
+const positiveOrNegative = function (value = randomNumbers) {
+  let countedNumbers = 0;
+  let positiveNumbers = 0;
+  let negativeNumbers = 0;
+
+  if (!Array.isArray(value)) {
+    if (typeof value === "number") {
+      if (value > 0) {
+        return `O número ${value} é positivo!`;
+      } else if (value < 0) {
+        return `O número ${value} é negativo!`;
+      } else {
+        return `O número zero é um número neutro, nem positivo e nem negativo.`;
+      }
+    } else {
+      return `O argumento passado não é um number e nem um array.`;
+    }
+  } else {
+    for (let i = 0; i < value.length; i++) {
+      countedNumbers++;
+      if (value[i] > 0) {
+        positiveNumbers++;
+      } else {
+        negativeNumbers++;
+      }
+    }
+  }
+  return `O array "randomNumbers" possui ${countedNumbers} números, sendo ${positiveNumbers} positivos e ${negativeNumbers} negativos.`;
+};
+
+console.log(positiveOrNegative());
+
+/*
+  06
+
+  - Descomente a invocação da função abaixo e implemente-a;
+  - Ela deve retornar um novo array com apenas os números ímpares do array 
+    passado por argumento;
+  - Exiba o novo array no console, sem inserir um console.log() dentro da  
+    função.
+*/
+
+const getOddNumbers = function (oddOrEven) {
+  let oddNumbers = [];
+  for (let i = 0; i < oddOrEven.length; i++) {
+    if (oddOrEven[i] % 2 !== 0) {
+      oddNumbers.push(oddOrEven[i]);
+    }
+  }
+
+  return oddNumbers;
+};
+
+console.log(
+  getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42])
+);
+
+/*
+  07
+
+  - Forme uma frase com o array abaixo e exiba-a no console.
+*/
+
+const functions = [
+  function () {
+    return "Plymouth";
+  },
+  function () {
+    return "é";
+  },
+  function () {
+    return "uma";
+  },
+  function () {
+    return "cidade";
+  },
+  function () {
+    return "fantasma";
+  },
+  function () {
+    return "localizada";
+  },
+  function () {
+    return "na";
+  },
+  function () {
+    return "ilha";
+  },
+  function () {
+    return "de";
+  },
+  function () {
+    return "Montserrat,";
+  },
+  function () {
+    return "um";
+  },
+  function () {
+    return "território";
+  },
+  function () {
+    return "ultramarino";
+  },
+  function () {
+    return "do";
+  },
+  function () {
+    return "Reino";
+  },
+  function () {
+    return "Unido";
+  },
+  function () {
+    return "localizado";
+  },
+  function () {
+    return "na";
+  },
+  function () {
+    return "cadeia";
+  },
+  function () {
+    return "de";
+  },
+  function () {
+    return "Ilhas";
+  },
+  function () {
+    return "de";
+  },
+  function () {
+    return "Sotavento";
+  },
+  function () {
+    return "nas";
+  },
+  function () {
+    return "Pequenas";
+  },
+  function () {
+    return "Antilhas,";
+  },
+  function () {
+    return "Índias";
+  },
+  function () {
+    return "Ocidentais.";
+  },
+];
+
+const arrayToSentence = function (array) {
+  let sentence = "";
+  for (let i = 0; i < array.length; i++) {
+    sentence += `${functions[i]()} `;
+  }
+  return sentence;
+};
+
+console.log(arrayToSentence(functions));
