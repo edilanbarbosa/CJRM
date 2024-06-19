@@ -99,13 +99,14 @@ console.log(newArray(millennialWords));
 
 
   melhorias que resolvi fazer: 
-    - o algoritimo vai ignorar todo valor que não é um número
     - vai receber tanto número solto quanto arrays
+    - o algoritimo vai ignorar todo valor que não é um número ou array
 */
 
 const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3];
 
 const positiveOrNegative = function (value = randomNumbers) {
+  
   let countedNumbers = 0;
   let positiveNumbers = 0;
   let negativeNumbers = 0;
@@ -255,6 +256,7 @@ const functions = [
   },
 ];
 
+// resolvi utilizar uma function para treinar mais.
 const arrayToSentence = function (array) {
   let sentence = "";
   for (let i = 0; i < array.length; i++) {
