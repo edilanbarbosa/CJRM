@@ -39,11 +39,12 @@ const randomNumbers = [59, 61, 73, 57, 35, 73, 21, 87, 43];
 let sum = 0;
 
 for (let i = 0; i < randomNumbers.length; i++) {
-  sum += randomNumbers[i];
   if (sum > 400) {
     console.log(`A soma ultrapassou 400. Até aqui, o valor atual é ${sum}`);
     break;
   }
+
+  sum += randomNumbers[i];
 }
 
 /*
@@ -66,17 +67,17 @@ const sentence = [
   "sabedoria.",
 ];
 
-let phase = "";
+let phrase = "";
 
 for (let i = 0; i < sentence.length; i++) {
   if (sentence[i] === "certeza") {
     continue;
   }
 
-  phase += `${sentence[i]} `;
+  phrase += `${sentence[i]} `;
 }
 
-console.log(phase);
+console.log(phrase);
 
 /*
   05
@@ -132,10 +133,13 @@ for (let i = 0; i < randomValues.length; i++) {
       continue;
     }
   } else {
-    const setence = toTheFirstFourStrings.join(", ").replace(", G", " e G");
+    const lastItem = toTheFirstFourStrings[toTheFirstFourStrings.length - 1];
+    const setence = toTheFirstFourStrings
+      .join(", ")
+      .replace(`, ${lastItem}`, ` e ${lastItem}`);
 
     console.log(
-      `- As primeiras 4 strings são ${setence}; \n- Até que as primeiras 4 strings fossem iteradas, ${booleansCounter} booleans foram iterados; \n- O array foi iterado por ${interactionCounter} vezes.`
+      `3 informações sobre o array randomValues: \n- As primeiras 4 strings são ${setence}; \n- Até que as primeiras 4 strings fossem iteradas, ${booleansCounter} booleans foram iterados; \n- O array foi iterado por ${interactionCounter} vezes.`
     );
     break;
   }
@@ -144,7 +148,7 @@ for (let i = 0; i < randomValues.length; i++) {
 /*
   06
 
-  - Descomente a constante abaixo atribua a ela algum tipo de bebida. Exemplo:  
+  - Descomente a constante abaixo e atribua a ela algum tipo de bebida. Exemplo:  
     água, refrigerante ou suco;
   - Utilize um switch statement com cases para essas 3 possibilidades de bebida;
   - Se o tipo da bebida é água, atribua à uma variável a mensagem "Substância 
@@ -162,7 +166,7 @@ for (let i = 0; i < randomValues.length; i++) {
 */
 
 const drinkType = "limonada";
-let message = "";
+let message;
 
 switch (drinkType) {
   case "água":
@@ -191,7 +195,7 @@ console.log(message);
     para testar o switch que você escreveu.
 */
 
-const a = 0;
+const a = 3;
 
 // if (a === 0) {
 //   console.log(`O valor de "a" é ${a}`)
