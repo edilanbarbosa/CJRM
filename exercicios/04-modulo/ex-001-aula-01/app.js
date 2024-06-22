@@ -13,9 +13,12 @@
     valor no console.
 */
 
-function convertToString (value) {
-  return String(value)
-}
+// function convertToString (value) {
+//   return String(value)
+// }
+
+const convertToString = (value) => String(value);
+console.log(convertToString(8));
 
 /*
   02
@@ -23,6 +26,9 @@ function convertToString (value) {
   - Crie uma função que retorne a quantidade de caracteres que uma string  
     recebida por parâmetro possui.
 */
+
+const numberOfCharacters = (string) => string.length;
+console.log(numberOfCharacters("Oi"));
 
 /*
   03
@@ -34,12 +40,22 @@ function convertToString (value) {
   "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
 */
 
+const lowerCaseString = (string) => string.toLowerCase();
+console.log(
+  lowerCaseString(
+    "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
+  )
+);
+
 /*
   04
 
   - Crie uma função que recebe 2 parâmetros: um caractere e uma string;
   - Ao ser invocada, a função deve retornar o index do caractere na string.
 */
+
+const characterIndex = (character, string) => string.indexOf(character);
+console.log(characterIndex("2", "123"));
 
 /*
   05
@@ -48,12 +64,19 @@ function convertToString (value) {
     passado por argumento existe no array (também passado por argumento).
 */
 
+const haveInTheArray = (item, array) => array.includes(item);
+console.log(haveInTheArray("Goiaba", ["Banana", "Melancia", "Goiaba", "Uva"]));
+
 /*
   06
 
   - Crie uma função que retorna a concatenação de 2 arrays, passados como  
     argumentos em sua invocação;
 */
+
+const arrayConcatenation = (firstArray, secondArray) =>
+  firstArray.concat(secondArray);
+console.log(arrayConcatenation([9, 3, 8], [1, 0, 2]));
 
 /*
   07
@@ -62,12 +85,22 @@ function convertToString (value) {
     mas com o último item removido.
 */
 
+const removeLastItem = (array) => {
+  array.pop();
+  return array;
+};
+
+console.log(removeLastItem([9, 0, 1]));
+
 /*
   08
 
   - Crie uma função que retorna se o valor passado como argumento em sua  
     invocação é null.
 */
+
+const isNull = (value) => value === null;
+console.log(isNull(null));
 
 /*
   09
@@ -80,6 +113,11 @@ function convertToString (value) {
     foi exibido.
 */
 
+const invokeCallback = (callback) => callback();
+const logName = () => console.log("Edilan");
+
+invokeCallback(logName);
+
 /*
   10
 
@@ -91,6 +129,11 @@ function convertToString (value) {
     resulte no triplo de 33.
 */
 
+const callCallback = (value, callback) => callback(value);
+const triple = (number) => number * 3;
+
+console.log(callCallback(33, triple));
+
 /*
   11
 
@@ -100,7 +143,15 @@ function convertToString (value) {
   "O Xº item do array [X, X, X] é X."
 */
 
-const numbers = [1, 2, 3]
+const numbers = [1, 2, 3];
+// numbers.forEach((item, index, array) => {
+//   console.log(`O ${index + 1}º item do array [${array}] é ${item}.`)
+// })
+
+const logNumber = (item, index, array) =>
+  console.log(`O ${index + 1}º item do array [${array.join(', ')}] é ${item}.`);
+
+numbers.forEach(logNumber);
 
 /*
   12
@@ -110,12 +161,22 @@ const numbers = [1, 2, 3]
     criada.
 */
 
-const letters = ['v', 'e', 'p']
-let lettersCopy = []
+const letters = ["v", "e", "p"];
+let lettersCopy = [];
 
-for (let i = 0; i < letters.length; i++) {
-  lettersCopy.push(letters[i])
-}
+// for (let i = 0; i < letters.length; i++) {
+//   lettersCopy.push(letters[i]);
+// }
+
+// const copyLetters = (item) => lettersCopy.push(item);
+// letters.forEach(copyLetters);
+
+// console.log(lettersCopy);
+
+// letters.forEach((item) => {lettersCopy.push(item)})
+letters.forEach((item) => lettersCopy.push(item)) // interessante, eu posso remover as {} e deixar tudo em uma única linha
+
+console.log(lettersCopy);
 
 /*
   13
@@ -135,17 +196,18 @@ for (let i = 0; i < letters.length; i++) {
   </article>
 */
 
-const section = document.querySelector('[data-js="section"]')
+const section = document.querySelector('[data-js="section"]');
 
 const review = [
-  'Eu sempre adorei o filme e quando descobri que tinha o livro também fiquei doido. Demorei um pouco mas acabei comprando e finalmente li \o/.',
-  'O primeiro filme foi baseado nesse livro, porém o livro (como sempre) é muito mais completo, com mais personagens, mais acontecimentos e até mesmo mais dinossauros. Na verdade nesse livro tem coisas do segundo e terceiro filme também, eles mudaram bastante nos filmes, acho que pra ficar mais comercial, e se o filme é bom, o livro é 100 vezes melhor.',
-  'Michael é um ótimo autor, esse sim pesquisa muito antes de escrever um livro, além da história que já prende sua atenção, ele fala bastante de genética (pra explicar como os dinossauros foram criados) e acaba falando um pouco de programação (informática), por causa dos programas avançados e modernos que o parque tinha. E isso foi uma das coisas que eu achei muito legal, ele explica as coisas com gráficos, tabelas, códigos ... enfim, o cara é foda hahaha.',
-  'Recomendo esse livro pra quem curte uma boa história de ficção. Apesar de muita gente pensar que o livro não tem graça, porque o legal mesmo é ver o dinossauro no filme, com todos os efeitos especiais, eu digo pra deixar esse pensamento de lado, pois a história é tão bem contada e os detalhes são tão bem relatados, que você passa a fazer parte da história, e vive todas as emoções hahaha.'
-]
+  "Eu sempre adorei o filme e quando descobri que tinha o livro também fiquei doido. Demorei um pouco mas acabei comprando e finalmente li o/.",
+  "O primeiro filme foi baseado nesse livro, porém o livro (como sempre) é muito mais completo, com mais personagens, mais acontecimentos e até mesmo mais dinossauros. Na verdade nesse livro tem coisas do segundo e terceiro filme também, eles mudaram bastante nos filmes, acho que pra ficar mais comercial, e se o filme é bom, o livro é 100 vezes melhor.",
+  "Michael é um ótimo autor, esse sim pesquisa muito antes de escrever um livro, além da história que já prende sua atenção, ele fala bastante de genética (pra explicar como os dinossauros foram criados) e acaba falando um pouco de programação (informática), por causa dos programas avançados e modernos que o parque tinha. E isso foi uma das coisas que eu achei muito legal, ele explica as coisas com gráficos, tabelas, códigos ... enfim, o cara é foda hahaha.",
+  "Recomendo esse livro pra quem curte uma boa história de ficção. Apesar de muita gente pensar que o livro não tem graça, porque o legal mesmo é ver o dinossauro no filme, com todos os efeitos especiais, eu digo pra deixar esse pensamento de lado, pois a história é tão bem contada e os detalhes são tão bem relatados, que você passa a fazer parte da história, e vive todas as emoções hahaha.",
+];
 
-let paragraphs = ''
+let paragraphs = "";
 
+review.forEach((item) => paragraphs += `<p>${item}</p>`)
 section.innerHTML = paragraphs
 
 /*
@@ -168,3 +230,21 @@ section.innerHTML = paragraphs
     pelo restante da quantidade de pessoas que curtiram o post (além das duas  
     pessoas já mencionadas no início da mensagem).
 */
+
+const likes = (arrayUsersWhoLiked = []) => {
+  switch (arrayUsersWhoLiked.length) {
+    case 0:
+      return 'Ninguém curtiu isso.'
+    case 1:
+      return `${arrayUsersWhoLiked[0]} curtiu isso.`
+    case 2:
+      return `${arrayUsersWhoLiked[0]} e ${arrayUsersWhoLiked[1]} curtiram isso.`
+    case 3:
+      return `${arrayUsersWhoLiked[0]}, ${arrayUsersWhoLiked[1]} e ${arrayUsersWhoLiked[2]} curtiram isso.`
+    default:
+      return `${arrayUsersWhoLiked[0]}, ${arrayUsersWhoLiked[1]} e mais ${arrayUsersWhoLiked.length - 2} pessoas curtiram isso.`
+  }
+}
+
+
+console.log(likes(['Edilan', 'Roger', 'Nair', 'Rafael', 'Luiz']))
